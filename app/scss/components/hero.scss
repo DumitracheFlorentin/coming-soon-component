@@ -1,0 +1,167 @@
+@use '../util';
+
+.hero {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  background-image: linear-gradient(
+    135deg,
+    hsl(0, 0%, 100%),
+    hsl(0, 100%, 98%)
+  );
+
+  @include util.breakpoint-down(small) {
+    height: 110vh;
+  }
+
+  &__details {
+    @include util.breakpoint-up(small) {
+      flex: 1.4;
+      background-image: url("../../../images/bg-pattern-desktop.svg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .container {
+      margin: 4rem 0 0 9rem;
+      @include util.breakpoint-down(small) {
+        overflow: hidden;
+      }
+
+      &__logo {
+        margin-bottom: 7rem;
+      }
+
+      &__mobile {
+        display: none;
+      }
+
+      &__title {
+        font-size: 4rem;
+        text-transform: uppercase;
+        color: var(--d-grayish-red);
+        letter-spacing: 8px;
+      }
+
+      &__simple {
+        color: hsla(0, 36%, 70%, 0.8);
+        font-weight: 200;
+      }
+
+      &__description {
+        width: 25em;
+        margin: 1.5rem 0;
+        color: var(--d-red);
+        line-height: 1.4;
+      }
+
+      &__form {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid hsla(0, 6%, 24%, 0.2);
+        width: 20em;
+        padding: 0.7rem 0 0.7rem 1.5rem;
+        margin-bottom: 0.8rem;
+        border-radius: 25px;
+
+        .email_input {
+          border: none;
+          background-color: transparent;
+
+          &:focus {
+            outline: 0;
+          }
+
+          &::placeholder {
+            color: hsla(0, 36%, 70%, 0.5);
+          }
+        }
+
+        .error_icon {
+          position: absolute;
+          left: 14em;
+        }
+
+        .btn {
+          position: absolute;
+          cursor: pointer;
+          top: -0.11em;
+          left: 20em;
+          border: none;
+          padding: 0.59rem 2rem;
+          border-radius: 20px;
+          background-image: linear-gradient(
+            135deg,
+            hsl(0, 80%, 86%),
+            hsl(0, 74%, 74%)
+          );
+
+          &:hover {
+            background-image: linear-gradient(
+              135deg,
+              hsla(0, 80%, 86%, 0.6),
+              hsla(0, 74%, 74%, 0.6)
+            );
+          }
+        }
+      }
+
+      @include util.breakpoint-down(small) {
+        margin: 0;
+
+        &__logo {
+          margin: 1rem 0 2rem 2rem;
+        }
+
+        &__mobile {
+          display: block;
+          width: 130%;
+          height: 40vh;
+        }
+
+        &__title {
+          text-align: center;
+        }
+
+        &__simple {
+          margin-top: 3rem;
+        }
+
+        &__description {
+          padding: 0 2rem;
+          width: 100%;
+          margin-top: 3rem;
+          text-align: center;
+        }
+
+        &__form {
+          left: 5em;
+        }
+      }
+
+      .error_message {
+        padding-left: 0.5rem;
+        color: var(--s-red);
+        font-size: 0.8rem;
+
+        @include util.breakpoint-down(small) {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &__photo {
+    flex: 1;
+    background-image: url("../../../images/hero-desktop.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+    @include util.breakpoint-down(small) {
+      display: none;
+    }
+  }
+}
